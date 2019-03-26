@@ -6,8 +6,13 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
+const { query } = require("./utils/db")
+
 const index = require('./routes/index')
 const users = require('./routes/users')
+
+// 设置全局变量
+global.query = query;
 
 // error handler
 onerror(app)
@@ -21,7 +26,7 @@ app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 
 app.use(views(__dirname + '/views', {
-  extension: 'pug'
+  extension: 'ejs'
 }))
 
 // logger

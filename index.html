@@ -8,5 +8,13 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script>
+      const socket = io('ws://localhost:3000');
+      // const userInfo = JSON.parse(localStorage.getItem("userInfo"))
+      // if (userInfo) {
+        socket.emit('update', '11111');
+      // }
+    </script>
   </body>
 </html>

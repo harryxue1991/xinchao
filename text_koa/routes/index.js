@@ -1,19 +1,14 @@
-const router = require('koa-router')()
+const router = require('koa-router')(),
+      baseApi = require('../config').baseApi,
+      register = require('../controllers/register'),
+      login = require('../controllers/login'),
+      verify = require('../middlewares/verify'), //中间件
+      userInfo = require('../controllers/userInfo.js');
 
-router.get('/', async (ctx, next) => {
-  await ctx.render('index', {
-    title: 'Hello Koa 2!'
-  })
-})
+router.prefix(`/${baseApi}`)
 
-router.get('/string', async (ctx, next) => {
-  ctx.body = 'koa2 string'
-})
 
-router.get('/json', async (ctx, next) => {
-  ctx.body = {
-    title: 'koa2 json'
-  }
-})
-
+router.post('/register', register)  //注册
+      .post('/login', login)        //登入
+      .get('/user_info', verify, userInfo.getUserInfo) // 获取用户资料
 module.exports = router
