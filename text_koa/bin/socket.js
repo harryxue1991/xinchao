@@ -2,7 +2,7 @@
 
 const socketModel = require("../models/soketHander");
 
-module.exports = function(io) {
+module.exports = (io) => {
     io.on("connection", socket => {
         const socketId = socket.id;
         //登录
