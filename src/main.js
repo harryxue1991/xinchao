@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
+// import '@/permission' // permission control
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

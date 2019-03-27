@@ -6,5 +6,13 @@
 </head>
 <body>
   <%=message%> <!-- ejs 的模版语法，读取变量 message | 是从 render 传递过来 -->
+  <div>
+    <button class="hello">你好</button>
+  </div>
 </body>
+<script>
+  document.getElementsByClassName('hello')[0].onclick = function () {
+    console.log(1)
+  }
+</script>
 </html>
