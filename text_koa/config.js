@@ -7,7 +7,7 @@ const db = {
 }
 const baseApi = 'api/v1'
 
-const secret = 'xinchaochat-sec'
+const secret = 'xinchao-sec'
 
 module.exports = {
 	db,
