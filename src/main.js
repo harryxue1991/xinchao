@@ -4,16 +4,27 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
+import '@/styles/index.styl'
 import 'element-ui/lib/theme-chalk/index.css';
+import store from './store'
+import api from './api/index'
+
+import socket from '@/socket'
+
+
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
-// import '@/permission' // permission control
+import '@/permission' // permission control
+
+Vue.prototype.api = api
+Vue.prototype.socket = socket
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -30,7 +30,7 @@ export default {
                 if (valid) {
                     axios.post('/api/v1/register', this.ruleForm2).then(res => {
                         if(res.data.success) {
-                            this.$router.push('/home')
+                            this.$router.push('/')
                         }else{
                             this.$message({
                                 message: res.data.message,

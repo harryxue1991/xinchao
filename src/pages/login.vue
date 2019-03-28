@@ -41,6 +41,7 @@ export default {
                 if (valid) {
                     axios.post('/api/v1/login', this.ruleForm2).then(res => {
                         if(res.data.success) {
+                            this.$router.push({ path: '/' })
                             console.log(res.data)
                         }else{
                             this.$message({

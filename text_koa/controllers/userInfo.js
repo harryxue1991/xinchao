@@ -1,12 +1,30 @@
 const userModel = require("../models/user_info");
 
 /**
+ *  通过token获取用户信息 （不包括密码）
+ * @param
+ * @return 用户名，性别，头像，最后登录时间，状态等
+ */
+
+let getUserInfo_token = async (ctx, next) => {
+	const RowDataPacket = await userModel.getUserInfo(ctx.user_id),
+		userInfo = JSON.parse(JSON.stringify(RowDataPacket));
+	ctx.body = {
+		success: true,
+		data: userInfo[0],
+		message: ''
+	};
+};
+
+
+/**
  *  通过user_id获取用户信息 （不包括密码）
  * @param
  * @return 用户名，性别，头像，最后登录时间，状态等
  */
 
 let getUserInfo = async (ctx, next) => {
+	console.log(ctx.query.user_id)
 	const RowDataPacket = await userModel.getUserInfo(ctx.query.user_id),
 		userInfo = JSON.parse(JSON.stringify(RowDataPacket));
 	ctx.body = {
@@ -203,6 +221,7 @@ let editorInfo = async (ctx, next) => {
 };
 
 module.exports = {
+	getUserInfo_token,
 	getUserInfo,
 	findUIByName,
 	isFriend,

@@ -7,6 +7,7 @@ module.exports = (io) => {
         const socketId = socket.id;
         //登录
         socket.on("login", async userId => {
+            console.log('更新socketId')
             await socketModel.saveUserSocketId(userId, socketId);
         });
         // 更新soketId 

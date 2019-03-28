@@ -10,6 +10,7 @@ router.prefix(`/${baseApi}`)
 
 router.post('/register', register)  //注册
       .post('/login', login)        //登入
+      .get('/users_info', verify, userInfo.getUserInfo_token) //通过token获取用户资料
       .get('/user_info', verify, userInfo.getUserInfo) // 获取用户资料
 
       
