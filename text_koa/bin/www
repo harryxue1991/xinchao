@@ -25,7 +25,9 @@ var server = http.createServer(app.callback());
 /**
  * 监听websocket
  */
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+  path: '/test'
+});
 require('./socket')(io);
 /**
  * Listen on provided port, on all network interfaces.

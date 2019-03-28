@@ -12,10 +12,14 @@ router.beforeEach((to, from, next) => {
                 next()
             }else{
                 store.dispatch('GetInfo', getToken()).then(res => {
-                    console.log(this)
-                    // console.log(this.mysocket)
-                    // this.socket.emit('update', res.data.user_id);
+                    socket.emit('update', res.data.user_id);
                     next();
+                },err => {
+                    if(err.response.status == 401) {
+                        store.dispatch('FedLogOut').then(() => {
+                            next();
+                        })
+                    }
                 })
             }
         }else{

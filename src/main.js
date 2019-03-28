@@ -18,7 +18,7 @@ Vue.config.productionTip = false
 import '@/permission' // permission control
 
 Vue.prototype.api = api
-Vue.prototype.socket = socket
+window.socket = socket
 
 /* eslint-disable no-new */
 new Vue({

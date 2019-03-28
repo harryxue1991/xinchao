@@ -22,7 +22,7 @@ module.exports = async (ctx, next) => {
 				id: res[0]["id"]
 			};
 			const token = jwt.sign(payload, secret, {
-				expiresIn: Math.floor(Date.now() / 1000) + 24 * 60 * 60 // 一天
+				expiresIn: 24 * 60 * 60   //24小时
 			});
 			ctx.body = {
 				success: true,
